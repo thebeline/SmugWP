@@ -1,0 +1,45 @@
+#sWP_table_Error {
+	color:#FF0000;
+	font-style:italic;
+}
+#sWP_table_GalleryIDtext {
+	text-align: right;
+	font-weight: bold;
+}
+#sWP_table_GalleryIDfield, #sWP_table_formButtons {
+	text-align: left;
+	padding-left: 20px;
+}
+.readOnly {
+	background:#FFE9EC;
+}
+.smugwpoptions table td {
+	vertical-align: top;
+	padding-top: 10px;
+}
+
+/* Image Display Settings */
+
+
+img.swpFL_None, img.swpFL_Left, img.swpFL_Right, img.swpFL_Center {
+	border: solid 1px #CCCCCC;
+	padding: 2px;
+	margin: 2px;
+}
+
+img.swpFL_None:hover, img.swpFL_Left:hover, img.swpFL_Right:hover, img.swpFL_Center:hover {
+	border: solid 1px #999999;
+}
+
+img.swpFL_Left {
+	float: left;
+}
+
+img.swpFL_Right {
+	float: right;
+}
+
+div.swpFL_Center {
+	text-align: center;
+	display: block;
+}
