@@ -622,7 +622,7 @@ display = '<img src="' + swpDisplay + '" alt="Powered By SmugWP" class="' + swpC
 
 if(swpLight != ''){ display = '<a href="' + swpLight +'" rel="lightbox' + swpGroup + '" title="' + swpCaption + '" class="smugwp" >' + display + '</a>' }
 
-if(swpClassFloat == "Center"){display = '<div class="smugwpCenter' + swpClassID + swpClassGroup + '" >' + display + '</div>' }
+if(document.buildSmugMug.Float.value == "Center"){display = '<div class="swpFL_Center' + swpClassID + swpClassGroup + '" >' + display + '</div>' }
 
 var win = window.opener ? window.opener : window.dialogArguments;
 
