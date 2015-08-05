@@ -309,7 +309,7 @@ class phpSmug {
 	function users_getTransferStats($Month, $Year)
 	{
 		/* http://smugmug.jot.com/WikiHome/1.2.0/smugmug.users.getTransferStats */
-		$this->request('smugmug.users.getTransferStats', array("SessionID" => $this->SessionID, "Month" => intval($Month), "Year" => intval($Year)));
+		$this->request('smugmug.users.getTransferStats', array("SessionID" => $this->SessionID, "Month" => (int) $Month, "Year" => (int) $Year));
 		return $this->parsed_response ? $this->parsed_response['Albums'] : FALSE;
 	}
 		
@@ -323,14 +323,14 @@ class phpSmug {
 	function albums_getInfo($AlbumID, $Password = NULL, $SitePassword = NULL)
 	{
 		/* http://smugmug.jot.com/WikiHome/1.2.0/smugmug.albums.getInfo */
-	    $this->request('smugmug.albums.getInfo', array("SessionID" => $this->SessionID, "AlbumID" => intval($AlbumID), "Password" => $Password, "SitePassword" => $SitePassword));
+	    $this->request('smugmug.albums.getInfo', array("SessionID" => $this->SessionID, "AlbumID" => (int) $AlbumID, "Password" => $Password, "SitePassword" => $SitePassword));
         return $this->parsed_response ? $this->parsed_response['Album'] : FALSE;
     }
 	
 	function albums_getStats($AlbumID, $Month, $Year, $Heavy = FALSE)
 	{
 		/* http://smugmug.jot.com/WikiHome/1.2.0/smugmug.albums.getStats */
-		$this->request('smugmug.albums.getStats', array("SessionID" => $this->SessionID, "AlbumID" => intval($AlbumID), "Month" => intval($Month), "Year" => intval($Year), "Heavy" => $Heavy));
+		$this->request('smugmug.albums.getStats', array("SessionID" => $this->SessionID, "AlbumID" => (int) $AlbumID, "Month" => (int) $Month, "Year" => (int) $Year, "Heavy" => $Heavy));
 		return $this->parsed_response ? $this->parsed_response['Album'] : FALSE;
 	}
 	
@@ -391,7 +391,7 @@ class phpSmug {
 	function images_get($AlbumID, $Heavy = FALSE, $Password = NULL, $SitePassword = NULL)
 	{
 		/* http://smugmug.jot.com/WikiHome/1.2.0/smugmug.images.get */
-		$this->request('smugmug.images.get', array("SessionID" => $this->SessionID, "AlbumID" => intval($AlbumID), "Heavy" => $Heavy, "Password" => $Password, "SitePassword" => $SitePassword));
+		$this->request('smugmug.images.get', array("SessionID" => $this->SessionID, "AlbumID" => (int) $AlbumID, "Heavy" => $Heavy, "Password" => $Password, "SitePassword" => $SitePassword));
 		return $this->parsed_response ? $this->parsed_response['Images'] : FALSE;
 	}
 	
@@ -401,21 +401,21 @@ class phpSmug {
 		Whilst the API page details various options for the TemplateID, they don't seem to have
 		any effect.  The AlbumURL always remains the same. It's probably of no use other than
 		to the actual SmugMug site at the moment. It's been implemented anyway. */
-		$this->request('smugmug.images.getURLs', array("SessionID" => $this->SessionID, "ImageID" => intval($ImageID), "TemplateID" => intval($TemplateID), "Password" => $Password, "SitePassword" => $SitePassword));
+		$this->request('smugmug.images.getURLs', array("SessionID" => $this->SessionID, "ImageID" => (int) $ImageID, "TemplateID" => (int) $TemplateID, "Password" => $Password, "SitePassword" => $SitePassword));
 		return $this->parsed_response ? $this->parsed_response['Image'] : FALSE;
 	}
 	
 	function images_getInfo($ImageID, $Password = NULL, $SitePassword = NULL)
 	{
 		/* http://smugmug.jot.com/WikiHome/1.2.0/smugmug.images.getInfo */
-		$this->request('smugmug.images.getInfo', array("SessionID" => $this->SessionID, "ImageID" => intval($ImageID), "Password" => $Password, "SitePassword" => $SitePassword));
+		$this->request('smugmug.images.getInfo', array("SessionID" => $this->SessionID, "ImageID" => (int) $ImageID, "Password" => $Password, "SitePassword" => $SitePassword));
 		return $this->parsed_response ? $this->parsed_response['Image'] : FALSE;
 	}
 	
 	function images_getEXIF($ImageID, $Password = NULL, $SitePassword = NULL)
 	{
 		/* http://smugmug.jot.com/WikiHome/1.2.0/smugmug.images.getEXIF */
-		$this->request('smugmug.images.getEXIF', array("SessionID" => $this->SessionID, "ImageID" => intval($ImageID), "Password" => $Password, "SitePassword" => $SitePassword));
+		$this->request('smugmug.images.getEXIF', array("SessionID" => $this->SessionID, "ImageID" => (int) $ImageID, "Password" => $Password, "SitePassword" => $SitePassword));
 		return $this->parsed_response ? $this->parsed_response['Image'] : FALSE;
 	}
 	
@@ -518,14 +518,14 @@ class phpSmug {
 	function images_delete($ImageID)
 	{
 		/* http://smugmug.jot.com/WikiHome/1.2.0/smugmug.images.delete */
-		$this->request('smugmug.images.delete', array("SessionID" => $this->SessionID, "ImageID" => intval($ImageID)));
+		$this->request('smugmug.images.delete', array("SessionID" => $this->SessionID, "ImageID" => (int) $ImageID));
 		return $this->parsed_response ? $this->parsed_response['stat'] : FALSE;	
 	}
 	
 	function images_getStats($ImageID, $Month)
 	{
 		/* http://smugmug.jot.com/WikiHome/1.2.0/smugmug.images.getStats */
-		$this->request('smugmug.images.getStats', array("SessionID" => $this->SessionID, "ImageID" => intval($ImageID), "Month" => intval($Month)));
+		$this->request('smugmug.images.getStats', array("SessionID" => $this->SessionID, "ImageID" => (int) $ImageID, "Month" => (int) $Month));
 		return $this->parsed_response ? $this->parsed_response['Image'] : FALSE;
 	}
 	
@@ -562,7 +562,7 @@ class phpSmug {
 	function subcategories_get($CategoryID, $NickName = NULL, $SitePassword = NULL)
 	{
 		/* http://smugmug.jot.com/WikiHome/1.2.0/smugmug.subcategories.get */
-		$this->request('smugmug.subcategories.get', array("SessionID" => $this->SessionID, "CategoryID" => intval($CategoryID), "NickName" => $NickName, "SitePassword" => $SitePassword));
+		$this->request('smugmug.subcategories.get', array("SessionID" => $this->SessionID, "CategoryID" => (int) $CategoryID, "NickName" => $NickName, "SitePassword" => $SitePassword));
 		return $this->parsed_response ? $this->parsed_response['SubCategories'] : FALSE;
 	}
 
